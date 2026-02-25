@@ -1,6 +1,9 @@
 # Build stage
 FROM node:20-alpine AS builder
 
+# Install OpenSSL 1.1 compatibility
+RUN apk add --no-cache openssl1.1-compat
+
 WORKDIR /app
 
 # Copy package files
@@ -20,6 +23,9 @@ RUN npm run build
 
 # Production stage
 FROM node:20-alpine AS production
+
+# Install OpenSSL 1.1 compatibility
+RUN apk add --no-cache openssl1.1-compat
 
 WORKDIR /app
 
