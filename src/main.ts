@@ -60,8 +60,8 @@ async function bootstrap() {
       },
       'JWT-auth',
     )
+    .addServer('https://marketplace-api-spvv.onrender.com', 'Production (Render)')
     .addServer('http://localhost:3000', 'Local Development')
-    .addServer('https://api.marketplace.com', 'Production')
     .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
